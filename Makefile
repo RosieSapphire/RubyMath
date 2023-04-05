@@ -10,14 +10,21 @@ BIN_TEST=librmath_test
 default: $(BIN)
 
 $(BIN): $(OBJ)
-	ar rcs $@ $^
-	rm -f *.o
+	@echo Generating static library...
+	@ar rcs $@ $^
+	@echo Deleting object files...
+	@rm -f *.o
+	@echo Successfully created static library!
 
 test: $(BIN)
-	$(CC) $(CFLAGS) $^ -o $(BIN_TEST) $(INC) $(LIB) -L. -lrmath
+	@echo Linking test executable...
+	@$(CC) $(CFLAGS) $^ -o $(BIN_TEST) $(INC) $(LIB) -L. -lrmath
+	@echo Successfully linked test executable!
 
 %.o: src/%.c
-	$(CC) $(CFLAGS) -c $^ $(INC)
+	@echo Compiling "'"$^"'"...
+	@$(CC) $(CFLAGS) -c $^ $(INC)
 
 clean:
-	rm -f $(BIN) $(BIN_TEST) $(OBJ)
+	@rm -f $(BIN) $(BIN_TEST) $(OBJ)
+	@echo Cleaned up all build files.
