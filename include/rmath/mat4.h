@@ -20,6 +20,7 @@ typedef float rm_mat4[4][4];
 #define RM_MAT4_IDENTITY ((rm_mat4)RM_MAT4_IDENTITY_INIT)
 
 void rm_mat4_zero(rm_mat4 x);
+void rm_mat4_identity(rm_mat4 x);
 void rm_mat4_copy(rm_mat4 from, rm_mat4 to);
 void rm_mat4_perspective(float fog_deg, float aspect, float near,
 		float far, rm_mat4 out);
