@@ -9,7 +9,14 @@
 
 void rm_mat4_zero(rm_mat4 x)
 {
-	memset(x, 0, 16 * sizeof(float));
+	memset(x, 0, sizeof(rm_mat4));
+}
+
+void rm_mat4_identity(rm_mat4 x)
+{
+	rm_mat4 id = RM_MAT4_IDENTITY_INIT;
+
+	memcpy(x, id, sizeof(rm_mat4));
 }
 
 void rm_mat4_copy(rm_mat4 from, rm_mat4 to)
