@@ -158,7 +158,7 @@ void rm_mat4_from_quaternion(rm_vec4f quat, rm_mat4 out)
 
 void rm_mat4_look_at(rm_vec3f eye, rm_vec3f focus, rm_mat4 out)
 {
-	rm_vec3f f, s, u, up = RM_VEC3F_Y;
+	rm_vec3f f, s, u, up = RM_VEC3F_Y_INIT;
 
 	rm_vec3f_negate(up);
 	rm_vec3f_sub(focus, eye, f);

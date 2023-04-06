@@ -5,11 +5,17 @@
 
 typedef float rm_vec3f[3];
 
-#define RM_VEC3F_ZERO ((rm_vec3f){0, 0, 0})
-#define RM_VEC3F_ONE  ((rm_vec3f){1, 1, 1})
-#define RM_VEC3F_X    ((rm_vec3f){1, 0, 0})
-#define RM_VEC3F_Y    ((rm_vec3f){0, 1, 0})
-#define RM_VEC3F_Z    ((rm_vec3f){0, 0, 1})
+#define RM_VEC3F_ZERO_INIT {0, 0, 0}
+#define RM_VEC3F_ONE_INIT  {1, 1, 1}
+#define RM_VEC3F_X_INIT    {1, 0, 0}
+#define RM_VEC3F_Y_INIT    {0, 1, 0}
+#define RM_VEC3F_Z_INIT    {0, 0, 1}
+
+#define RM_VEC3F_ZERO      ((rm_vec3f)RM_VEC3F_ZERO_INIT)
+#define RM_VEC3F_ONE       ((rm_vec3f)RM_VEC3F_ONE_INIT)
+#define RM_VEC3F_X         ((rm_vec3f)RM_VEC3F_X_INIT)
+#define RM_VEC3F_Y         ((rm_vec3f)RM_VEC3F_Y_INIT)
+#define RM_VEC3F_Z         ((rm_vec3f)RM_VEC3F_Z_INIT)
 
 void rm_vec3f_scale(rm_vec3f x, float s);
 void rm_vec3f_negate(rm_vec3f x);
