@@ -26,6 +26,9 @@ void rm_mat4_perspective(float fog_deg, float aspect, float near,
 		float far, rm_mat4 out);
 void rm_mat4_orthographic(float l, float r, float t, float b, rm_mat4 out);
 void rm_mat4_translate(rm_mat4 mat, rm_vec3f vec);
+void rm_mat4_translate_x(rm_mat4 mat, float move);
+void rm_mat4_translate_y(rm_mat4 mat, float move);
+void rm_mat4_translate_z(rm_mat4 mat, float move);
 void rm_mat4_scale(rm_mat4 mat, rm_vec3f vec);
 void rm_mat4_scale_uni(rm_mat4 mat, float s);
 void rm_mat4_rotate(rm_mat4 mat, rm_vec3f axis, float angle_rad);

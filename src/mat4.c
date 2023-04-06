@@ -58,6 +58,21 @@ void rm_mat4_translate(rm_mat4 mat, rm_vec3f vec)
 	rm_vec3f_add(mat[3], vec, mat[3]);
 }
 
+void rm_mat4_translate_x(rm_mat4 mat, float move)
+{
+	rm_mat4_translate(mat, (rm_vec3f){move, 0, 0});
+}
+
+void rm_mat4_translate_y(rm_mat4 mat, float move)
+{
+	rm_mat4_translate(mat, (rm_vec3f){0, move, 0});
+}
+
+void rm_mat4_translate_z(rm_mat4 mat, float move)
+{
+	rm_mat4_translate(mat, (rm_vec3f){0, 0, move});
+}
+
 void rm_mat4_scale(rm_mat4 mat, rm_vec3f vec)
 {
 	mat[0][0] *= vec[0];
