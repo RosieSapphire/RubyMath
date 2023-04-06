@@ -8,11 +8,9 @@ int main()
 	while(1) {
 		usleep(500000);
 		rm_mat4_print(a);
-		rm_mat4_rotate_x(a, 0.001f);
-		/*
-		rm_mat4_translate(a,
-				(rm_vec3f){0.0012486f, 0.0021259f, 0.0032189f});
-				*/
+		rm_mat4_translate_x(a, 0.1f);
+		rm_mat4_translate_y(a, 0.1f);
+		rm_mat4_translate_z(a, 0.1f);
 	}
 
 	return 0;
