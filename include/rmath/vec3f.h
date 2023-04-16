@@ -17,6 +17,7 @@ typedef float rm_vec3f[3];
 #define RM_VEC3F_Y         ((rm_vec3f)RM_VEC3F_Y_INIT)
 #define RM_VEC3F_Z         ((rm_vec3f)RM_VEC3F_Z_INIT)
 
+void rm_vec3f_copy(rm_vec3f src, rm_vec3f dst);
 void rm_vec3f_scale(rm_vec3f x, float s);
 void rm_vec3f_negate(rm_vec3f x);
 void rm_vec3f_add(rm_vec3f a, rm_vec3f b, rm_vec3f out);

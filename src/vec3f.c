@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 #include "rmath/vec3f.h"
+
+void rm_vec3f_copy(rm_vec3f src, rm_vec3f dst)
+{
+	memcpy(dst, src, sizeof(rm_vec3f));
+}
 
 void rm_vec3f_scale(rm_vec3f x, float s)
 {
