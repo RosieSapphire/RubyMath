@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#include "rmath/helpers.h"
 #include "rmath/vec3f.h"
 
 void rm_vec3f_copy(rm_vec3f src, rm_vec3f dst)
@@ -67,7 +68,13 @@ float rm_vec3f_magnitude(rm_vec3f x)
 
 void rm_vec3f_normalize(rm_vec3f x)
 {
-	rm_vec3f_scale(x, 1.0f / rm_vec3f_magnitude(x));
+	float mag = rm_vec3f_magnitude(x);
+
+	if(fabsf(mag) < RM_EPSILON) {
+		return;
+	}
+	
+	rm_vec3f_scale(x, 1.0f / mag);
 }
 
 void rm_vec3f_print(rm_vec3f x)
