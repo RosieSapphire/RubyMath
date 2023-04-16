@@ -1,6 +1,6 @@
-#include "rmath/vec3f.h"
-
+#include <stdio.h>
 #include <math.h>
+#include "rmath/vec3f.h"
 
 void rm_vec3f_scale(rm_vec3f x, float s)
 {
@@ -61,4 +61,9 @@ float rm_vec3f_magnitude(rm_vec3f x)
 void rm_vec3f_normalize(rm_vec3f x)
 {
 	rm_vec3f_scale(x, 1.0f / rm_vec3f_magnitude(x));
+}
+
+void rm_vec3f_print(rm_vec3f x)
+{
+	printf("(%.2f, %.2f, %.2f)\n", x[0], x[1], x[2]);
 }

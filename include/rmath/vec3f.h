@@ -27,5 +27,6 @@ float rm_vec3f_dot(rm_vec3f a, rm_vec3f b);
 void rm_vec3f_cross(rm_vec3f a, rm_vec3f b, rm_vec3f out);
 float rm_vec3f_magnitude(rm_vec3f x);
 void rm_vec3f_normalize(rm_vec3f x);
+void rm_vec3f_print(rm_vec3f x);
 
 #endif
