@@ -29,8 +29,9 @@ void rm_vec3f_add(rm_vec3f a, rm_vec3f b, rm_vec3f out)
 
 void rm_vec3f_sub(rm_vec3f a, rm_vec3f b, rm_vec3f out)
 {
-	rm_vec3f_negate(b);
-	rm_vec3f_add(a, b, out);
+	out[0] = a[0] - b[0];
+	out[1] = a[1] - b[1];
+	out[2] = a[2] - b[2];
 }
 
 void rm_vec3f_lerp(rm_vec3f a, rm_vec3f b, float t, rm_vec3f out)
