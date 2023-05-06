@@ -21,8 +21,8 @@ void rm_vec2f_add(rm_vec2f a, rm_vec2f b, rm_vec2f out)
 
 void rm_vec2f_sub(rm_vec2f a, rm_vec2f b, rm_vec2f out)
 {
-	rm_vec2f_negate(b);
-	rm_vec2f_add(a, b, out);
+	out[0] = a[0] - b[0];
+	out[1] = a[1] - b[1];
 }
 
 void rm_vec2f_lerp(rm_vec2f a, rm_vec2f b, float t, rm_vec2f out)
