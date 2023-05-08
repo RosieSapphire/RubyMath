@@ -10,21 +10,16 @@ BIN_TEST=librmath_test
 default: $(BIN)
 
 $(BIN): $(OBJ)
-	@echo Generating static library...
-	@ar rcs $@ $^
-	@echo Deleting object files...
-	@rm -f *.o
-	@echo Successfully created static library!
+	ar rcs $@ $^
+	rm -f *.o
+	@echo Successfully created Ruby Math Library!
 
 test: $(BIN)
-	@echo Linking test executable...
-	@$(CC) $(CFLAGS) $^ -o $(BIN_TEST) $(INC) $(LIB) -L. -lrmath
-	@echo Successfully linked test executable!
+	$(CC) $(CFLAGS) $^ -o $(BIN_TEST) $(INC) $(LIB) -L. -lrmath
+	@echo Successfully linked Ruby Math test executable!
 
 %.o: src/%.c
-	@echo Compiling "'"$^"'"...
-	@$(CC) $(CFLAGS) -c $^ $(INC)
+	$(CC) $(CFLAGS) -c $^ $(INC)
 
 clean:
-	@rm -f $(BIN) $(BIN_TEST) $(OBJ)
-	@echo Cleaned up all build files.
+	rm -f $(BIN) $(BIN_TEST) $(OBJ)
