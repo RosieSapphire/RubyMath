@@ -1,14 +1,15 @@
 CC=cc
-CFLAGS=-Wall -Wextra -Og -g3
+CFLAGS=-Wall -Wextra -O2
 INC=-Iinclude
-LIB=$(shell pkg-config --libs glfw3) -lm
+LIB=-lm
 SRC=$(wildcard src/*.c)
-OBJ=$(patsubst src/%.c, %.o, $(SRC))
-BIN=librmath.a
-BIN_TEST=librmath_test
+OBJ=$(patsubst src/%.c,%.o,$(SRC))
+LIB_OUT=librmath.a
+TEST=librmath_test
 
-default: $(BIN)
+default: $(LIB_OUT)
 
+<<<<<<< HEAD
 $(BIN): $(OBJ)
 	ar rcs $@ $^
 	rm -f *.o
@@ -23,3 +24,18 @@ test: $(BIN)
 
 clean:
 	rm -f $(BIN) $(BIN_TEST) $(OBJ)
+=======
+test: $(LIB_OUT)
+	$(CC) $(CFLAGS) $^ -o $(TEST) $(INC) $(LIB) -L. -l:$<
+	rm -rf *.o
+
+$(LIB_OUT): $(OBJ)
+	ar rcs $@ $^
+	rm -rf *.o
+
+%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< $(INC)
+
+clean:
+	rm -f $(LIB_OUT) $(TEST) $(OBJ)
+>>>>>>> fb7b51f3558d6e42df3d40402ac6ee3b157c2ffd
