@@ -15,13 +15,14 @@ test: $(LIB_OUT)
 	@rm -rf *.o
 
 $(LIB_OUT): $(OBJ)
-	@ar rcs $@ $^
+	ar rcs $@ $^
 	@echo Successfully created Ruby Math Library!
-	@rm -rf *.o
+	rm -rf *.o
+	@echo Removed object files
 
 %.o: src/%.c
 	$(CC) $(CFLAGS) -c $< $(INC)
 
 clean:
-	@rm -f $(LIB_OUT) $(TEST) $(OBJ)
+	rm -f $(LIB_OUT) $(TEST) $(OBJ)
 	@echo Cleaned up all Ruby Math build files.
