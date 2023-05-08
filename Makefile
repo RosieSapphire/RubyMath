@@ -1,30 +1,27 @@
 CC=cc
-CFLAGS=-Wall -Wextra -Og -g3
+CFLAGS=-Wall -Wextra -O2
 INC=-Iinclude
-LIB=$(shell pkg-config --libs glfw3) -lm
+LIB=-lm
 SRC=$(wildcard src/*.c)
 OBJ=$(patsubst src/%.c, %.o, $(SRC))
-BIN=librmath.a
-BIN_TEST=librmath_test
+LIB_OUT=librmath.a
+TEST=librmath_test
 
-default: $(BIN)
+default: $(LIB_OUT)
 
-$(BIN): $(OBJ)
-	@echo Generating static library...
+test: $(LIB_OUT)
+	$(CC) $(CFLAGS) $^ -o $(TEST) $(INC) $(LIB) -L. -l:$<
+	@echo Successfully linked Ruby Math Test Program!
+	@rm -rf *.o
+
+$(LIB_OUT): $(OBJ)
 	@ar rcs $@ $^
-	@echo Deleting object files...
-	@rm -f *.o
-	@echo Successfully created static library!
-
-test: $(BIN)
-	@echo Linking test executable...
-	@$(CC) $(CFLAGS) $^ -o $(BIN_TEST) $(INC) $(LIB) -L. -lrmath
-	@echo Successfully linked test executable!
+	@echo Successfully created Ruby Math Library!
+	@rm -rf *.o
 
 %.o: src/%.c
-	@echo Compiling "'"$^"'"...
-	@$(CC) $(CFLAGS) -c $^ $(INC)
+	$(CC) $(CFLAGS) -c $< $(INC)
 
 clean:
-	@rm -f $(BIN) $(BIN_TEST) $(OBJ)
-	@echo Cleaned up all build files.
+	@rm -f $(LIB_OUT) $(TEST) $(OBJ)
+	@echo Cleaned up all Ruby Math build files.
